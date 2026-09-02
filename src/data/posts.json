@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "why-static-generation-still-wins",
+    "title": "Why static generation still wins for content sites",
+    "excerpt": "SSG gives you CDN-cacheable HTML, near-zero server load, and predictable hosting costs — here's when it still beats SSR in 2026.",
+    "date": "2026-06-02",
+    "body": "Static generation pre-renders every page at build time, so the server just hands out plain HTML on every request. For a blog or portfolio, where content changes in bursts (you publish, not stream), this is close to free to host and fast for every visitor.\n\nThe tradeoff is the rebuild step: content changes need a new build. That's exactly what a headless CMS webhook is for — the CMS notifies your server, your server re-runs `next build`, and the new HTML replaces the old. No app server needs to run per-request logic.\n\nOn a platform like Cloudways, this means your Node.js app server is mostly idle, serving cached static output, and only wakes up to rebuild when you publish."
+  },
+  {
+    "slug": "headless-cms-vs-local-markdown",
+    "title": "Headless CMS vs. local Markdown: which should you use?",
+    "excerpt": "Local MDX files are simpler and version-controlled. A headless CMS lets non-developers publish. This project uses both, on purpose.",
+    "date": "2026-06-18",
+    "body": "Local MDX is great when the person editing content is the same person editing code — every post is a pull request, reviewed and versioned like anything else.\n\nA headless CMS (Contentful, Sanity, Storyblok, and similar) makes sense once a non-technical editor needs to publish without touching Git. They get a web UI; you get an API to pull structured content from at build time.\n\nThis project deliberately mixes both: portfolio projects live as MDX in the repo (they change rarely, and you're the one editing them), while blog posts are modeled as CMS content (see `src/lib/cms.ts`) so you can swap the mock JSON for a real Contentful or Sanity space without touching any page component."
+  },
+  {
+    "slug": "deploying-nextjs-to-a-vps",
+    "title": "Deploying a Next.js app to a plain VPS, step by step",
+    "excerpt": "No serverless platform required. Just Node, a process manager, and a reverse proxy — here's the checklist.",
+    "date": "2026-07-05",
+    "body": "Deploying Next.js outside of Vercel is mostly about three things: running `next build` reliably, keeping `next start` alive as a long-running process, and putting a reverse proxy (Nginx, in Cloudways' case) in front of it for TLS and caching headers.\n\nCloudways' Node.js application hosting handles the process manager and Nginx config for you, so the remaining work is just: push code, set environment variables, run the build command, and point the app's start command at `npm start`.\n\nSee `CLOUDWAYS_DEPLOY.md` in this repo for the exact steps used to deploy this project."
+  }
+]

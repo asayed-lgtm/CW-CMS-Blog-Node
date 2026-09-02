@@ -1,0 +1,22 @@
+---
+title: "Link Shortener"
+description: "A minimal URL shortener with click analytics, deployed to a Node.js server."
+date: "2026-02-22"
+tags: ["Next.js", "SQLite", "Analytics"]
+demo: "https://example.com"
+---
+
+A URL shortener that redirects short codes to long URLs and logs a
+click count per link.
+
+## Stack
+
+- Next.js middleware for the redirect logic
+- SQLite for storage (file-based, easy to deploy alongside the app)
+- A small dashboard page showing click counts per link
+
+## What it demonstrates
+
+Using Next.js middleware for redirect logic that has to run on every
+request — a case where static generation alone isn't enough, and you
+need the Node server actually running.

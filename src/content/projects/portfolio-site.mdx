@@ -1,0 +1,23 @@
+---
+title: "This Portfolio Site"
+description: "The very site you're looking at — statically generated Next.js, deployed to Cloudways."
+date: "2026-08-01"
+tags: ["Next.js", "Tailwind", "SSG"]
+repo: "https://github.com/your-username/cloudways-blog-cms"
+---
+
+Meta, but useful: this project is itself the example. Blog posts are
+modeled as headless-CMS content (see `src/lib/cms.ts`), and this project
+list is authored as local MDX files like this one.
+
+## Stack
+
+- Next.js App Router with `generateStaticParams` for both `/blog/[slug]`
+  and `/projects/[slug]`
+- Tailwind CSS for styling
+- Deployed on Cloudways' Node.js application hosting
+
+## What it demonstrates
+
+The full loop: write content, build statically, deploy to a real Node
+server, and rebuild on a webhook when content changes.
